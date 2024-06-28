@@ -1,5 +1,5 @@
 const todoList = [
-  { title: "learn react", id: 0 },
+  { title: "Learn react", id: 0 },
   { title: "Practice", id: 1 },
   { title: "Implement", id: 2 },
 ];
