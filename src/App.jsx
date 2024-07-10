@@ -1,24 +1,18 @@
-import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { useState } from "react"; 
+import TodoList from "./TodoList";
+import AddTodoForm from "./AddTodoForm";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const todoList = [
-    { title: "learn react", id: 0 },
-    { title: "Practice", id: 1 },
-    { title: "Implement", id: 2 },
-  ];
-
+  const [newList, setNewList] = useState("");
   return (
     <>
-      <h1>Todo list</h1>
-      <ul>
-        {todoList.map((todo) => (
-          <li key={todo.id}>{todo.title}</li>
-        ))}
-      </ul>
+      <h1>Todo List</h1>
+      <AddTodoForm onAddList={setNewList} />
+      <p>{newList}</p>
+      <TodoList />
     </>
   );
 }
