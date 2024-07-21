@@ -6,13 +6,15 @@ import TodoList from "./TodoList";
 import AddTodoForm from "./AddTodoForm";
 
 function App() {
-  const [newList, setNewList] = useState("");
   const [ todoList, setTodoList ] = useState([]);
+
+  function addList(newTodo) {
+    setTodoList((previousTodoList) => [...previousTodoList, newTodo])
+  }
   return (
     <>
       <h1>Todo List</h1>
-      <AddTodoForm onAddList={setNewList} />
-      <p>{newList}</p>
+      <AddTodoForm onAddList={addList} />
       <TodoList todoList={todoList} />
     </>
   );
