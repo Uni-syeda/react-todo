@@ -1,3 +1,3 @@
-export default function TodoListItem(title) {
+export default function TodoListItem({ title }) {
   return <li>{title}</li>;
 }

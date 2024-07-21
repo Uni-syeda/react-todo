@@ -10,15 +10,15 @@ export default function AddTodoForm({ onAddTodo }) {
 
   function handleAddTodo(event) {
     event.preventDefault();
-    const form = event.target;
     const newTodo = {
       title: todoTitle,
-      id: Gate.now(),
+      id: Date.now(),
     };
 
     onAddTodo(newTodo);
     setTodoTitle("");
   }
+  
   return (
     <form onSubmit={handleAddTodo}>
       <label htmlFor="todoTitle">Enter Todo List</label>
