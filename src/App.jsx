@@ -2,7 +2,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
-import TodoList from "./TodoList.jsx";
+import TodoList from "./TodoList";
 import AddTodoForm from "./AddTodoForm";
 
 function useSemiPersistentState() {
@@ -22,11 +22,16 @@ function App() {
   function addTodo(newTodo) {
     setTodoList((previousTodoList) => [...previousTodoList, newTodo]);
   }
+
+  function removeTodo(id) {
+    const filteredTodo = todoList.filter((todo) => todo.id !== id);
+    setTodoList(filteredTodo);
+  }
   return (
     <>
       <h1>Todo List</h1>
       <AddTodoForm onAddTodo={addTodo} />
-      <TodoList todoList={todoList} />
+      <TodoList onRemoveTodo={removeTodo} todoList={todoList} />
     </>
   );
 }
